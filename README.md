@@ -10,7 +10,6 @@ This exercise does **not** deploy to Cloud Run or create billable Google Cloud r
 - Clone and inspect a small application repository.
 - Start a Python web application in a remote shell environment.
 - Send HTTP requests, inspect responses and logs, and make a small change.
-- Explain the difference between previewing an app in Cloud Shell and deploying a persistent cloud service.
 
 ## Requirements
 
@@ -31,15 +30,13 @@ git clone https://github.com/hsbarbosa/com3021-2026-w1-getting-started.git
 cd com3021-2026-w1-getting-started
 ```
 
-In the Editor, inspect `app.py`, `data/sample.csv`, and `requirements.txt`. Before running anything, predict what `/health` and `/api/summary` will return.
+In the Editor, inspect `app.py` and `data/sample.csv`. Before running anything, predict what `/health` and `/api/summary` will return.
 
-### 3. Install dependencies and start the app
+
+### 3. Start the app
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python app.py
+python3 app.py
 ```
 
 Leave this terminal running. The app listens on port `8080`.
@@ -69,15 +66,12 @@ Edit `app.py` to add a `max_value` field to `/api/summary`, calculated from the 
 
 - **The preview cannot connect:** make sure the app is still running and listening on `0.0.0.0:8080`; reopen Web Preview on port `8080`.
 - **Address already in use:** stop the earlier app with `Ctrl+C`, then start it again.
-- **Flask is not found:** activate the virtual environment with `source .venv/bin/activate`, then run `python -m pip install -r requirements.txt` again.
-- **Clone or package installation fails:** check that Cloud Shell has internet access and retry once. If the issue persists, show the error to the instructor rather than changing project billing settings.
+- **Flask is not found:** check that you are using Cloud Shell’s `python3` interpreter, then show the error to the instructor.
 
-## Discussion
 
-1. Which part of the exercise ran in Cloud Shell, and which part ran in your browser?
-2. What did the HTTP request contain, and what did the application return?
-3. What would need to change for this to become a persistent service other people could access?
-4. Why is the Flask development server appropriate for this short exercise but not a production deployment?
+## Extension tasks
+* Based on the existing code, create another entry `/hello` showing the message "Hello World". Update the landing page accordingly. 
+* Create an entry `/data` in which it will show a table with all the data (hint: use pandas). Update the landing page accordingly.
 
 ## Stop
 
